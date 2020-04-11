@@ -43,7 +43,7 @@ function MongoUtils() {
 				object,
 				(err, result) => {
 					if (err) throw err;
-					cbk(result);
+					cbk(result.ops);
 					client.close();
 				}
 			);
