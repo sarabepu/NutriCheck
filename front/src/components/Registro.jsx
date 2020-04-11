@@ -7,10 +7,7 @@ function Registro(){
     const [isPaciente,setPaciente] = useState(true)
 
 
-    useEffect(() => {
-        // Update the document title using the browser API
-        console.log(isPaciente);
-      });
+    
 
     return (
         <Container id="main-card">

@@ -5,6 +5,24 @@ function MongoUtils() {
 		dbName = "nutricheck",
 		uri = `${process.env.uriNutri}`;
 
+	mu.findOne = (query, colName, cbk) => {
+		console.log("entra la base de datosssss findOne")
+		const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
+		client.connect(err => {
+			if (err) throw err;
+			const collection = client.db(dbName).collection(colName);
+
+			if (query) {
+				user = collection.findOne(query)
+					.then((user) => {
+						cbk(user);
+						client.close();
+
+
+					});
+			}
+		});
+	};
 	mu.findMany = (cbk, colName, query) => {
 		const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
 		client.connect(err => {
@@ -50,7 +68,7 @@ function MongoUtils() {
 		});
 	};
 
-	
+
 
 	return mu;
 
