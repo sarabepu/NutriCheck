@@ -6,18 +6,24 @@ router.get("/", (req, res) => res.send("Hello World!"));
 
 // Register a new user
 router.post("/new", (req, res) => {
-  db.insertOne(
-    (user) => {
-      res.send(user);
-    },
-    "users",
-    req.body.user
-  );
+    usuario = req.body.user
+    db.insertOne(usuario,'users',(user) => {
+        res.send(user)
+    } )
+
 });
 
 // Get user
-router.post("/", (req, res) => {
-  db.findOne(req.body.user, "users", (user) => res.send(user));
+router.post("/profile", (req, res) => {
+    db.findOne(req.body.user,'users',(user) => res.send(user))
 });
+// Get users
+router.post("/", (req, res) => {
+    db.findMany(req.body.user,'users', (user) => res.send(user))});
+
+
+
+
+
 
 module.exports = router;

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Col, Nav, Card, Row, Button, Container } from 'react-bootstrap';
+import React, { useState } from "react";
+import {  Nav, Card, Container } from 'react-bootstrap';
 import RegistroPaciente from './RegistroPaciente';
 import RegistroNutri from './RegistroNutri';
 function Registro(props){
@@ -27,7 +27,7 @@ function Registro(props){
                 </Card.Header>
 
                 <Card.Body>
-                    { (isPaciente) ? <RegistroPaciente setUser={props.setUser}/>:<RegistroNutri />  }
+                    { (isPaciente) ? <RegistroPaciente setUser={props.setUser}/>:<RegistroNutri setUser={props.setUser}/>  }
                 </Card.Body>
             </Card>
         </Container>

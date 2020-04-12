@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Registro from './Registro'
 
-import Login from './Login';
-import { Button } from 'react-bootstrap';
 
 function Home(props) {
 

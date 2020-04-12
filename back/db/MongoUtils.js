@@ -23,7 +23,8 @@ function MongoUtils() {
       }
     });
   };
-  mu.findMany = (cbk, colName, query) => {
+  mu.findMany = (query, colName, cbk) => {
+    console.log("entra la base de datoss findMany", query);
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
     client.connect((err) => {
       if (err) throw err;
@@ -45,7 +46,8 @@ function MongoUtils() {
     });
   };
 
-  mu.insertOne = (cbk, colName, object) => {
+  mu.insertOne = (object, colName, cbk) => {
+    console.log("entra la base de datoss insertOne", object);
     mu.findOne({ username: object.username }, "users", (user) => {
       if (user) cbk({ error: "El userName ya existe" });
       else {
