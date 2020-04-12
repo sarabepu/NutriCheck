@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Col, Form, InputGroup, Card, Row, Button, Container } from 'react-bootstrap';
+import React, { useState} from "react";
+import {  Form, Button } from 'react-bootstrap';
 
 //Método para hacer post con fetch
 async function postData(url = '', data = {}) {
@@ -44,7 +44,7 @@ function Login(props) {
     
           <Form.Control type="password" placeholder="Password"   className=" ml-sm-2" onChange={e => setPassword(e.target.value)}/>
         
-          <Form.Check type="checkbox" label=" Soy Nutricionista" className=" ml-sm-2 white-text" onChange={e => setPassword(e.target.value)}/>
+          <Form.Check type="checkbox" label=" Soy Nutricionista" className=" ml-sm-2 white-text" onChange={e => setNutri(e.target.value)}/>
         <Button  variant="primary" className=" ml-sm-2" onClick={handleSubmit}>Login
        
     </Button>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col, Form, Nav, Card, Row, Button, Container } from 'react-bootstrap';
+import { Col, Form, Button } from 'react-bootstrap';
 
 //Método para hacer post con fetch
 async function postData(url = '', data = {}) {
@@ -44,14 +44,14 @@ function RegistroPaciente(props) {
   const [nutris, setNutris] = useState([]);
   //Looks for nutricionistas
              
-  useEffect( () =>{
+  useEffect( (nutris) =>{
     postData('http://localhost:3000/user', { user: { nutri: true } })
     .then((data) => {
       console.log(data, "resultado")
       setNutris(data);
       console.log(nutris, "lista")
     })
-  },[]);
+  },[nutris.length]);
   
 
 

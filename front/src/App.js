@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
-import { Button } from "react-bootstrap";
 import NavBar from "./components/Navbar";
 import Home from "./components/Home";
 
