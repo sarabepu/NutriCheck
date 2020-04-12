@@ -3,6 +3,9 @@ const Strategy = require('passport-local').Strategy;
 const db = require('./db/MongoUtils');
 
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 
 // Configure the local strategy for use by Passport.
 //
@@ -12,21 +15,24 @@ const db = require('./db/MongoUtils');
 // will be set at `req.user` in route handlers after authentication.
 passport.use(new Strategy(
     function (username, password, cb) {
-        console.log(username,password,cb,'passport')
+        console.log(username, password, cb, 'passport')
 
         db.findOne({ "username": username }, 'users', (user) => {
             if (user) {
-                if (user.password != password) {
-                    console.log('passport worg password')
-                    cb(null, false)
-                }
-                else {
-                    console.log('passport right password')
-                    cb(null, user);
-                }
+                bcrypt.compare(password, user.password).then(function (result) {
+                    // result == true
+                    if (result) {
+                        console.log('passport right password')
+                        cb(null, user);
+                    }
+                    else {
+                        console.log('passport worg password')
+                        cb(null, false)
+                    }
+                });
             }
             else {
-                console.log('passport no existe useername')
+                console.log('passport no existe username')
                 cbk(new Error("no existe el usuario"));
             }
         });
@@ -64,7 +70,7 @@ const configurePassport = app => {
     // Use application-level middleware for common functionality, including
     // logging, parsing, and session handling.
     app.use(require('morgan')('combined'));
-    
+
     app.use(
         require('express-session')({
             secret: process.env.secretKey,

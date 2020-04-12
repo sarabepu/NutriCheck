@@ -6,7 +6,8 @@ router.get("/", (req, res) => res.send('Hello World!'));
 
 // Register a new user
 router.post("/new",(req,res) =>{
-    db.insertOne((user)=>res.send(user),'users',req.body.user)
+    db.insertOne((user)=>{
+        res.send(user)},'users',req.body.user)
 });
 
 // Get user

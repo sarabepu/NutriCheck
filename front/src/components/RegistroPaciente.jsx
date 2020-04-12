@@ -20,28 +20,43 @@ async function postData(url = '', data = {}) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function RegistroPaciente() {
+function RegistroPaciente(props) {
 
   const [nombre, setNombre] = useState("")
+  const [username, setUserName] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleSubmit=()=>{
-    let paciente={nombre};
+    let paciente={"user":{username,nombre,password}};
     console.log(paciente);
-    postData('localhost:3000',paciente)
-    .then((data)=>{})
+    postData('http://localhost:3000/user/new',paciente)
+    .then((data)=>{
+      if(data.error){
+
+      }
+      else{
+      paciente={username,password};
+    postData('http://localhost:3000/login',paciente)
+    .then((data)=>props.setUser(data.user));
+      }
+    })
   };
 
   return (
     <Form>
+      <Form.Group as={Col} controlId="formGridUserName">
+          <Form.Label>UserName</Form.Label>
+          <Form.Control type="text" placeholder="Ingrese UserName" onChange={e => setUserName(e.target.value)} />
+        </Form.Group>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridNombre">
           <Form.Label>Nombre</Form.Label>
           <Form.Control type="text" placeholder="Ingrese nombre" onChange={e => setNombre(e.target.value)} />
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridApellido">
+        <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
         </Form.Group>
       </Form.Row>
       <Button variant="primary" onClick={handleSubmit}>

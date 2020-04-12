@@ -26,7 +26,7 @@ function Home() {
             {(user==null)?
                 <>
                 <Login setUser={setUser}/>
-                <Registro />
+                <Registro setUser={setUser}/>
                 </>
              : 
              <>

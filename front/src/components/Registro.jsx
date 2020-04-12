@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Col, Nav, Card, Row, Button, Container } from 'react-bootstrap';
 import RegistroPaciente from './RegistroPaciente';
 import RegistroNutri from './RegistroNutri';
-function Registro(){
+function Registro(props){
 
     const [isPaciente,setPaciente] = useState(true)
 
@@ -27,7 +27,7 @@ function Registro(){
                 </Card.Header>
 
                 <Card.Body>
-                    { (isPaciente) ? <RegistroPaciente />:<RegistroNutri />  }
+                    { (isPaciente) ? <RegistroPaciente setUser={props.setUser}/>:<RegistroNutri />  }
                 </Card.Body>
             </Card>
         </Container>
