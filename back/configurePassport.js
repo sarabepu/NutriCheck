@@ -43,7 +43,7 @@ passport.use(new Strategy(
 // serializing, and querying the user record by ID from the database when
 // deserializing.
 passport.serializeUser(function (user, cb) {
-    cb(null, user._id);
+    cb(null, user.username);
 });
 
 passport.deserializeUser(function (username, cb) {
@@ -53,7 +53,7 @@ passport.deserializeUser(function (username, cb) {
         }
         else {
             console.log('User not found')
-            cbk(new Error("no existe el usuario"));
+            cb(new Error("no existe el usuario"));
         }
     });
 });

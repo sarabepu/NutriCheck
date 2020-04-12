@@ -20,7 +20,7 @@ function Registro(){
                             <Nav.Link href="#first">Paciente</Nav.Link>
                         </Nav.Item>
                         <Nav.Item id="button-Nutri" onClick={ () => setPaciente(false) }>
-                            <Nav.Link href="#link">Nutricionista</Nav.Link>
+                            <Nav.Link href="#second">Nutricionista</Nav.Link>
                         </Nav.Item>
 
                     </Nav>

@@ -33,6 +33,10 @@ function Login(props) {
   };
 
   return (
+    <div>
+      <br/>
+      <br/>
+    <Container>
     <Form>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridUsername">
@@ -45,10 +49,14 @@ function Login(props) {
           <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/>
         </Form.Group>
       </Form.Row>
-      <Button variant="primary" onClick={handleSubmit}>
-        Login
+      <center>
+        <Button variant="primary" onClick={handleSubmit}>Login
+       
     </Button>
+    </center>
     </Form>
+    </Container>
+    </div>
   );
 }
 export default Login;

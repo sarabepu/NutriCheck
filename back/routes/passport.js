@@ -3,18 +3,11 @@ const passport = require('passport');
 const express = require('express');
 const router= express.Router();
 // Define routes.
-router.get('/',
-  function(req, res) {
-    res.send( { user: req.user });
-  });
 
-router.get('/login',
-  function(req, res){
-    console.log("fallo");
-  });
+router.get('/fail', function(req,red){res.send(new Error("Contraseña incorrecta"))})
   
 router.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
+  passport.authenticate('local', { failureRedirect: '/fail' }),
   function(req, res) {
     res.send( { user: req.user });
   });
@@ -22,7 +15,6 @@ router.post('/login',
 router.get('/logout',
   function(req, res){
     req.logout();
-    res.redirect('/');
   });
 
 router.get('/profile',

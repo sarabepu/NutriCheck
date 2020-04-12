@@ -6,7 +6,7 @@ function MongoUtils() {
 		uri = `${process.env.uriNutri}`;
 
 	mu.findOne = (query, colName, cbk) => {
-		console.log("entra la base de datosssss findOne")
+		console.log("entra la base de datosssss findOne",query)
 		const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
 		client.connect(err => {
 			if (err) throw err;
