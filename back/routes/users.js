@@ -1,26 +1,25 @@
-var express = require("express");
-var router = express.Router();
-var db = require("../db/MongoUtils")
+const express = require("express");
+const router = express.Router();
+const db = require("../db/MongoUtils");
 /* GET home page. */
-router.get("/", (req, res) => res.send('Hello World!'));
+router.get("/", (req, res) => res.send("Hello World!"));
 
 // Register a new user
 router.post("/new", (req, res) => {
     usuario = req.body.user
-    db.insertOne((user) => {
+    db.insertOne(usuario,'users',(user) => {
         res.send(user)
-    }, 'users', usuario)
+    } )
 
 });
 
 // Get user
 router.post("/profile", (req, res) => {
-    db.findOne((user) => res.send(user), 'users',req.body.user)
+    db.findOne(req.body.user,'users',(user) => res.send(user))
 });
 // Get users
 router.post("/", (req, res) => {
-    db.findMany( (user) => res.send(user),'users',req.body.user)
-});
+    db.findMany(req.body.user,'users', (user) => res.send(user))});
 
 
 

@@ -1,6 +1,6 @@
 const mongodb = require("mongodb");
 
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 function MongoUtils() {
@@ -9,7 +9,7 @@ function MongoUtils() {
 		dbName = "nutricheck",
 		uri = `${process.env.uriNutri}`;
 
-	mu.findOne = (cbk, colName, query) => {
+	mu.findOne = (query,colName,cbk ) => {
 		console.log("entra la base de datoss findOne", query)
 		const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
 		client.connect(err => {
@@ -25,7 +25,7 @@ function MongoUtils() {
 			}
 		});
 	};
-	mu.findMany = (cbk, colName, query) => {
+	mu.findMany = (query, colName,cbk ) => {
 		
 		console.log("entra la base de datoss findMany", query)
 		const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
@@ -53,7 +53,7 @@ function MongoUtils() {
 	};
 
 
-	mu.insertOne = (cbk, colName, object) => {
+	mu.insertOne = (object,colName,cbk  ) => {
 		
 		console.log("entra la base de datoss insertOne", object)
 		mu.findOne({ "username": object.username }, 'users', (user) => {
