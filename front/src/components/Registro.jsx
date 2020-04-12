@@ -27,7 +27,7 @@ function Registro(props){
                 </Card.Header>
 
                 <Card.Body>
-                    { (isPaciente) ? <RegistroPaciente setUser={props.setUser}/>:<RegistroNutri />  }
+                    { (isPaciente) ? <RegistroPaciente setUser={props.setUser}/>:<RegistroNutri setUser={props.setUser}/>  }
                 </Card.Body>
             </Card>
         </Container>

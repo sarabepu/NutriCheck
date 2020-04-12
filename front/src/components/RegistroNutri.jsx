@@ -20,32 +20,62 @@ async function postData(url = '', data = {}) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function RegistroNutri() {
+function RegistroNutri(props) {
 
+
+  const [username, setUsername] = useState("")
   const [nombre, setNombre] = useState("")
 
-  const handleSubmit=()=>{
-    let paciente={nombre};
-    console.log(paciente);
-    postData('localhost:3000',paciente)
-    .then((data)=>{})
+  const [apellido, setApellido] = useState("")
+
+  const [password, setPassword] = useState("")
+
+  const handleSubmit = () => {
+    let nutri = {
+      user: { username, nombre, apellido, password, nutri: true }
+    };
+    console.log(nutri);
+    postData('http://localhost:3000/user/new', nutri)
+      .then((data) => {
+        if (data.error) {
+          //avisar al usuario del error
+        }
+        else {
+          nutri = { username, password, nutri: true };
+          postData('http://localhost:3000/login', nutri)
+            .then((data) => props.setUser(data.user));
+        }
+      })
   };
 
   return (
     <Form>
       <Form.Row>
-        <Form.Group as={Col} controlId="formGridNombre">
-          <Form.Label>Nombre</Form.Label>
-          <Form.Control type="text" placeholder="Ingrese nombre" onChange={e => setNombre(e.target.value)} />
+        <Form.Group as={Col} controlId="formGridUsername">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridApellido">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Label>Contraseña</Form.Label>
+          <Form.Control type="password" placeholder="Contraseña" onChange={e => setPassword(e.target.value)} />
         </Form.Group>
+
+      </Form.Row>
+      <Form.Row>
+        <Form.Group as={Col} controlId="formGridNombre">
+          <Form.Label>Nombres</Form.Label>
+          <Form.Control type="text" placeholder="Nombres" onChange={e => setNombre(e.target.value)} />
+        </Form.Group>
+        <Form.Group as={Col} controlId="formGridApellido">
+          <Form.Label>Apellidos</Form.Label>
+          <Form.Control type="text" placeholder="Apellidos" onChange={e => setApellido(e.target.value)} />
+        </Form.Group>
+
+
       </Form.Row>
       <Button variant="primary" onClick={handleSubmit}>
-        Registrarme2
+        Registrarme
     </Button>
     </Form>
   );

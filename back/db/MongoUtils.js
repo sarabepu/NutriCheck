@@ -9,7 +9,7 @@ function MongoUtils() {
 		dbName = "nutricheck",
 		uri = `${process.env.uriNutri}`;
 
-	mu.findOne = (query, colName, cbk) => {
+	mu.findOne = (cbk, colName, query) => {
 		console.log("entra la base de datoss findOne", query)
 		const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
 		client.connect(err => {
@@ -26,6 +26,8 @@ function MongoUtils() {
 		});
 	};
 	mu.findMany = (cbk, colName, query) => {
+		
+		console.log("entra la base de datoss findMany", query)
 		const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
 		client.connect(err => {
 			if (err) throw err;
@@ -52,6 +54,8 @@ function MongoUtils() {
 
 
 	mu.insertOne = (cbk, colName, object) => {
+		
+		console.log("entra la base de datoss insertOne", object)
 		mu.findOne({ "username": object.username }, 'users', (user) => {
 			if (user) cbk({"error":"El userName ya existe"});
 			else {

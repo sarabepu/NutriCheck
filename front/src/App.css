@@ -12,9 +12,16 @@
   color: white !important;
 }
 button{
-  background-color: #77D6B0 !important;
-  border-color:#77D6B0 !important; 
+  background-color: #1A936F !important;
+  border-color:#1A936F !important; 
   color:white !important;
+}
+
+.button-outline{
+  margin: .5rem !important;
+  background-color: white !important;
+  border-color:#1A936F !important; 
+  color:#1A936F !important;
 }
 
 body{
