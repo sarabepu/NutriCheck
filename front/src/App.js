@@ -10,12 +10,21 @@ import Home from './components/Home';
 
 function App() {
  
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    console.log('getUser');
+    fetch("http://localhost:3000/getUser",{credentials: 'include'})
+        .then(res => res.json())
+        .then(user =>{ console.log('getUser',user); setUser(user);});
+},[]);
+
   return (
     <>
-      <NavBar />
+      <NavBar user={user} setUser={setUser}/>
       
 
-      <Home />
+      <Home user={user} setUser={setUser}/>
     </>
   )
 

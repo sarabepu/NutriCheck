@@ -4,34 +4,21 @@ import Registro from './Registro'
 import Login from './Login';
 import { Button } from 'react-bootstrap';
 
-function Home() {
-
-    const logout= () =>{
-        fetch("http://localhost:3000/logout")
-        .then(setUser(null))
-    };
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        console.log('getUser');
-        fetch("http://localhost:3000/getUser",{credentials: 'include'})
-            .then(res => res.json())
-            .then(user =>{ console.log('getUser',user);setUser(user);});
-    },[]);
+function Home(props) {
 
 
-    console.log(user)
+
+    console.log(props.user)
     return (
         <div>
-            {(user==null)?
+            {(props.user==null)?
                 <>
-                <Login setUser={setUser}/>
-                <Registro setUser={setUser}/>
+                <Registro {...props}/>
                 </>
              : 
              <>
-             <h1>Welcome {user.username}</h1>
-             <Button onClick={logout}>Logout</Button>
+             <h1 className="white-text" >Perfil de  {props.user.username}</h1>
+             
              </>}
         </div>
     );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col, Form, Nav, Card, Row, Button, Container } from 'react-bootstrap';
+import { Col, Form, InputGroup, Card, Row, Button, Container } from 'react-bootstrap';
 
 //Método para hacer post con fetch
 async function postData(url = '', data = {}) {
@@ -33,33 +33,21 @@ function Login(props) {
   };
 
   return (
-    <div>
-      <Card>
-  <Card.Header>Inicia Sesión </Card.Header>
-  <Card.Body>
-    <Container>
-    <Form>
-      <Form.Row>
-        <Form.Group as={Col} controlId="formGridUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control type="text" placeholder="Ingrese Username" onChange={e => setUsername(e.target.value)} />
-        </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/>
-        </Form.Group>
-      </Form.Row>
-      <center>
-        <Button  variant="primary" onClick={handleSubmit}>Login
+    
+
+    <Form inline >
+      
+          <Form.Control type="text" placeholder="Username"  onChange={e => setUsername(e.target.value)} />
+    
+
+        
+          <Form.Control type="password" placeholder="Password"   className=" ml-sm-2" onChange={e => setPassword(e.target.value)}/>
+        
+        <Button  variant="primary" className=" ml-sm-2" onClick={handleSubmit}>Login
        
     </Button>
-    </center>
     </Form>
-    </Container>
-    </Card.Body>
-    </Card>
-    </div>
   );
 }
 export default Login;
