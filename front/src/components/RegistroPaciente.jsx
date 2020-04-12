@@ -59,7 +59,7 @@ function RegistroPaciente(props) {
           <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
         </Form.Group>
       </Form.Row>
-      <Button variant="primary" onClick={handleSubmit}>
+      <Button variant="primary"  onClick={handleSubmit}>
         Registrarme
     </Button>
     </Form>

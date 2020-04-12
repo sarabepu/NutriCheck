@@ -4,5 +4,20 @@
 }
 
 #navbar-principal{
-  background-color: #3D315B !important;
+  background-color: #114B5F !important;
+ 
+}
+
+.white-text{
+  color: white !important;
+}
+button{
+  background-color: #77D6B0 !important;
+  border-color:#77D6B0 !important; 
+  color:white !important;
+}
+
+body{
+  background:linear-gradient(0deg, rgba(20, 20, 26, 0.7), rgba(19, 18, 18, 0.7)), url('/images/frutas.jpg');
+  background-size:cover;
 }

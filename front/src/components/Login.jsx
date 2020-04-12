@@ -34,8 +34,9 @@ function Login(props) {
 
   return (
     <div>
-      <br/>
-      <br/>
+      <Card>
+  <Card.Header>Inicia Sesión </Card.Header>
+  <Card.Body>
     <Container>
     <Form>
       <Form.Row>
@@ -50,12 +51,14 @@ function Login(props) {
         </Form.Group>
       </Form.Row>
       <center>
-        <Button variant="primary" onClick={handleSubmit}>Login
+        <Button  variant="primary" onClick={handleSubmit}>Login
        
     </Button>
     </center>
     </Form>
     </Container>
+    </Card.Body>
+    </Card>
     </div>
   );
 }

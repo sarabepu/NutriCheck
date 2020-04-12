@@ -5,7 +5,7 @@ const express = require('express');
 const router= express.Router();
 // Define routes.
 
-router.get('/fail', function(req,red){res.send(new Error("Contraseña incorrecta"))})
+router.get('/fail', function(req,res){res.send(new Error("Contraseña incorrecta"))})
   
 router.post('/login', 
   passport.authenticate('local', { failureRedirect: '/fail' }),
