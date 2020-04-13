@@ -107,7 +107,25 @@ function Medidas(props) {
     </Button>
 
             </Form.Row>
-
+            <br />
+            <span className="subtitle"> Información corporal </span>
+            
+            <br />
+            <Form.Row>
+              
+              <Form.Group as={Col} >
+                <Form.Label>Indice de masa corporal</Form.Label>
+                <h3>
+                    {
+                      (peso/estatura**2).toFixed(2)
+                    }
+                  </h3>
+                <div id="formBasicRange">
+                  
+                <Form.Control type="range" value={(peso/estatura**2).toFixed(2)} min={10} max={50}  disabled />
+                </div>
+              </Form.Group>
+            </Form.Row>
           </Form>
 
         </Card.Body>
