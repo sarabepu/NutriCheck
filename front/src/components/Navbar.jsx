@@ -11,7 +11,7 @@ function NavBar(props) {
   return (
     <>
       <Navbar expand="lg" fixed="top" id="navbar-principal">
-        <Navbar.Brand className="white-text" href="/">
+        <Navbar.Brand className="white-text logo font-match" href="/">
           Nutricheck
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
