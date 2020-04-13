@@ -37,6 +37,15 @@ button:not(.close) {
   max-width: 35vw;
   margin: 2vh auto;
 }
+.graph-card {
+  width: 45vw;
+  margin: 2vh auto;
+}
+.chart-wrapper {
+  padding: 2%;
+  width: 96%;
+  display: inline-block;
+}
 .modal-body {
   text-align: center;
 }
