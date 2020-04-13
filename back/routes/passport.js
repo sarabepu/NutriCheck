@@ -5,7 +5,7 @@ const router = express.Router();
 // Define routes.
 
 router.get("/fail", function (req, res) {
-  res.send({error:"Contraseña incorrecta"});
+  res.send({ error: "Contraseña incorrecta" });
 });
 
 router.post(
@@ -18,8 +18,7 @@ router.post(
 
 router.get("/logout", function (req, res) {
   req.logout();
-  
-  console.log('si llego a log outtttt')
+  res.send({ user: "null" });
 });
 
 router.get(
