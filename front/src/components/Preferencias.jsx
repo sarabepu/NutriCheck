@@ -40,7 +40,7 @@ function Preferencias(props) {
               {props.user.favoritos.length > 0 ? (
                 props.user.favoritos.map((fav) => {
                   return (
-                    <Badge key={fav} pill variant="secondary" className="mr-1">
+                    <Badge key={fav} pill className="mr-1">
                       {fav.toLowerCase()}
                     </Badge>
                   );
@@ -66,7 +66,7 @@ function Preferencias(props) {
               {props.user.desagradables.length > 0 ? (
                 props.user.desagradables.map((fav) => {
                   return (
-                    <Badge key={fav} pill variant="secondary" className="mr-1">
+                    <Badge key={fav} pill className="mr-1">
                       {fav.toLowerCase()}
                     </Badge>
                   );
@@ -92,12 +92,7 @@ function Preferencias(props) {
               {props.user.alergias.length > 0 ? (
                 props.user.alergias.map((fav) => {
                   return (
-                    <Badge
-                      key={fav}
-                      pill
-                      variant="secondary"
-                      className="mr-1 mb-1"
-                    >
+                    <Badge key={fav} pill className="mr-1 mb-1">
                       {fav.toLowerCase()}
                     </Badge>
                   );

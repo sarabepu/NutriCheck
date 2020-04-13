@@ -51,18 +51,8 @@ function RegistroPaciente(props) {
         }
       );
     },
-    [nutris.length]
+    [nutris]
   );
-
-  useEffect((nutris) => {
-    postData("http://localhost:3000/user", { user: { nutri: true } }).then(
-      (data) => {
-        console.log(data, "resultado");
-        setNutris(data);
-        console.log(nutris, "lista");
-      }
-    );
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

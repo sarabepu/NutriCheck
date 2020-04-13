@@ -15,16 +15,22 @@
   color: white !important;
 }
 button:not(.close) {
-  background-color: #77d6b0 !important;
-  border-color: #77d6b0 !important;
+  background-color: #f25c78 !important;
+  border-color: #f25c78 !important;
   color: white !important;
 }
 
 .button-outline {
   margin: 0.5rem !important;
   background-color: white !important;
-  border-color: #77d6b0 !important;
-  color: #77d6b0 !important;
+  border-color: #f25c78 !important;
+  color: #f25c78 !important;
+}
+.card-header {
+  background-color: #a1bf34;
+}
+.card-header a {
+  color: black;
 }
 .card-content {
   max-height: 62vh;
@@ -39,9 +45,17 @@ button:not(.close) {
   font-size: 1.5rem;
   margin-bottom: 1vh;
 }
-.secondary-button {
+button:not(.close).secondary-button {
   height: 1.8rem;
+  width: 1.8rem;
   margin: auto;
+  color: #f25c78 !important;
+  border-color: white !important;
+  background-color: white !important;
+}
+.svg-inline--fa {
+  align-items: center;
+  display: flex;
 }
 .sub-card {
   max-width: 35vw;
@@ -61,6 +75,11 @@ button:not(.close) {
   text-align: center;
 }
 
+.badge {
+  background-color: #114b5f;
+  color: white;
+}
+
 .nav-item {
   display: flex;
   align-items: center;
@@ -76,11 +95,6 @@ button:not(.close) {
 .alert-danger .close {
   padding-top: 0;
   padding-right: 4px;
-}
-
-.svg-inline--fa {
-  align-items: center;
-  display: flex;
 }
 
 body {
@@ -100,13 +114,13 @@ input[type="range"] {
 }
 
 #formBasicRange {
-  background: rgb(242, 3, 69);
+  background: #f20345;
   background: linear-gradient(
     90deg,
-    rgba(242, 3, 69, 1) 0%,
-    rgba(214, 154, 26, 1) 20%,
-    rgba(26, 147, 111, 1) 26%,
-    rgba(214, 154, 26, 1) 42%,
-    rgba(242, 3, 69, 1) 61%
+    #f20345 0%,
+    #f2bc1b 16%,
+    #74bf04 28%,
+    #f2bc1b 36%,
+    #f20345 80%
   );
 }
