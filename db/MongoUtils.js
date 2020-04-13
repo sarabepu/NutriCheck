@@ -24,8 +24,6 @@ function MongoUtils() {
     });
   };
 
-  
-
   mu.findMany = (query, colName, cbk) => {
     console.log("entra la base de datoss findMany", query);
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
@@ -94,7 +92,6 @@ function MongoUtils() {
       });
     });
   };
-
 
   mu.updateOne = (cbk, colName, object, update) => {
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });

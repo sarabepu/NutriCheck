@@ -7,7 +7,7 @@ function Pacientes(props) {
   const [pacientes, setPacientes] = useState([]);
   const [paciente, setPaciente] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:3000/user/${props.user.username}/patients`)
+    fetch(`/user/${props.user.username}/patients`)
       .then((res) => res.json())
       .then((res) => {
         setPacientes(res);

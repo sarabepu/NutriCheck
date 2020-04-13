@@ -7,7 +7,7 @@ function PacienteDieta(props) {
   let dia = new Date().getDay();
 
   useEffect(() => {
-    fetch("http://localhost:3000/ingredients")
+    fetch("/ingredients")
       .then((res) => res.json())
       .then((res) => {
         let ings = new Map();
@@ -27,7 +27,7 @@ function PacienteDieta(props) {
     let query2 = alergias.join(", ");
     if (query2) query = query + props.paciente.alergias.join(", ");
 
-    fetch("http://localhost:3000/ingredients/generate", {
+    fetch("/ingredients/generate", {
       method: "POST",
       body: {
         query: query,
@@ -52,7 +52,7 @@ function PacienteDieta(props) {
           const recipe = JSON.parse(meal.value);
           meals[day - 1][slot - 1] = recipe.title;
         }
-        fetch(`http://localhost:3000/user/${props.paciente.username}`, {
+        fetch(`/user/${props.paciente.username}`, {
           method: "PUT",
           headers: {
             Accept: "application/json",

@@ -4,7 +4,7 @@ import Login from "./Login";
 
 function NavBar(props) {
   const logout = () => {
-    fetch("http://localhost:3000/logout").then(() => {
+    fetch("/logout").then(() => {
       props.setUser(null);
     });
   };

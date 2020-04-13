@@ -34,14 +34,12 @@ function RegistroNutri(props) {
       user: { username, nombre, apellido, password, nutri: true },
     };
     console.log(nutri);
-    postData("http://localhost:3000/user/new", nutri).then((data) => {
+    postData("/user/new", nutri).then((data) => {
       if (data.error) {
         //avisar al usuario del error
       } else {
         nutri = { username, password, nutri: true };
-        postData("http://localhost:3000/login", nutri).then((data) =>
-          props.setUser(data.user)
-        );
+        postData("/login", nutri).then((data) => props.setUser(data.user));
       }
     });
   };

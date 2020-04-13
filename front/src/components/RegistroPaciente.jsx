@@ -42,11 +42,9 @@ function RegistroPaciente(props) {
 
   //Looks for nutricionistas
   useEffect(() => {
-    postData("http://localhost:3000/user", { user: { nutri: true } }).then(
-      (data) => {
-        setNutris(data);
-      }
-    );
+    postData("/user", { user: { nutri: true } }).then((data) => {
+      setNutris(data);
+    });
   }, []);
 
   const handleSubmit = (e) => {
@@ -84,14 +82,12 @@ function RegistroPaciente(props) {
       },
     };
     console.log(paciente);
-    postData("http://localhost:3000/user/new", paciente).then((data) => {
+    postData("/user/new", paciente).then((data) => {
       if (data.error) {
         //avisar al usuario del error
       } else {
         paciente = { username, password };
-        postData("http://localhost:3000/login", paciente).then((data) =>
-          props.setUser(data.user)
-        );
+        postData("/login", paciente).then((data) => props.setUser(data.user));
       }
     });
   };

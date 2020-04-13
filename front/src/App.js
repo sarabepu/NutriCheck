@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     console.log("getUser");
-    fetch("http://localhost:3000/getUser", { credentials: "include" })
+    fetch("/getUser", { credentials: "include" })
       .then((res) => res.json())
       .then((user) => {
         console.log("getUser", user);

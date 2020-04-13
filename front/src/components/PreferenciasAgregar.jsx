@@ -6,7 +6,7 @@ function PreferenciasAgregar(props) {
   const [checks, setChecked] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:3000/ingredients")
+    fetch("/ingredients")
       .then((res) => res.json())
       .then((res) => {
         setIngredients(res.map((i) => i.nombre));
@@ -32,7 +32,7 @@ function PreferenciasAgregar(props) {
     for (const ing in checks) {
       if (checks[ing]) newList.push(ing);
     }
-    fetch(`http://localhost:3000/user/${props.user.username}`, {
+    fetch(`/user/${props.user.username}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",

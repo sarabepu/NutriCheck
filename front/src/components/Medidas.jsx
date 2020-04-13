@@ -53,7 +53,7 @@ function Medidas(props) {
 
     if (!found) newHistorial.push(newEntry);
 
-    return fetch(`http://localhost:3000/user/${props.user.username}`, {
+    return fetch(`/user/${props.user.username}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",
@@ -77,7 +77,7 @@ function Medidas(props) {
         brazo,
       },
     };
-    postData("http://localhost:3000/user/update", paciente)
+    postData("/user/update", paciente)
       .then((data) => {
         setMessage("Tus medidas se actualizaron correctamente! 😁");
         setModalShow(true);
