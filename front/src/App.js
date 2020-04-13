@@ -23,9 +23,6 @@ function App() {
     <Router>
       <NavBar user={user} setUser={setUser} />
       <Switch>
-        <Route path="/progreso">
-          <Dashboard user={user} setUser={setUser}></Dashboard>
-        </Route>
         <Route path="/">
           <Home user={user} setUser={setUser} />
         </Route>

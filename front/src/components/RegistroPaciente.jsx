@@ -8,7 +8,7 @@ async function postData(url = "", data = {}) {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "include", // include, *same-origin, omit
+    credentials: "same-origin", // include, *same-origin, omit
     headers: {
       "Content-Type": "application/json",
       // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -53,6 +53,16 @@ function RegistroPaciente(props) {
     },
     [nutris.length]
   );
+
+  useEffect((nutris) => {
+    postData("http://localhost:3000/user", { user: { nutri: true } }).then(
+      (data) => {
+        console.log(data, "resultado");
+        setNutris(data);
+        console.log(nutris, "lista");
+      }
+    );
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -269,7 +279,11 @@ function RegistroPaciente(props) {
       )}
 
       <Form.Row>
-        <Button variant="primary" type="submit">
+        <Button
+          className=" ml-sm-2 button-outline"
+          variant="primary"
+          type="submit"
+        >
           Registrate
         </Button>
         <Button

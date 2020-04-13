@@ -23,12 +23,12 @@ function NavBar(props) {
                   Bienvenid@ {props.user.nombre}! 😊
                 </Nav.Item>
                 {props.user.nutri || (
-                  <Nav.Link className="white-text" href="/">
+                  <Nav.Link className="white-text" href="#datos">
                     Mis datos
                   </Nav.Link>
                 )}
                 {props.user.nutri || (
-                  <Nav.Link className="white-text" href="/progreso">
+                  <Nav.Link className="white-text" href="#progreso">
                     Mi progreso
                   </Nav.Link>
                 )}

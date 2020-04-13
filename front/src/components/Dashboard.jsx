@@ -5,7 +5,7 @@ import Grafica from "./Grafica";
 function Dashboard(props) {
   return (
     <Container>
-      <h1 className="white-text mt-2" align="center">
+      <h1 id="progreso" className="white-text mt-2" align="center">
         Mi progreso
       </h1>
       <Row>

@@ -11,23 +11,29 @@
   color: white !important;
 }
 button:not(.close) {
-  background-color: #1a936f !important;
-  border-color: #1a936f !important;
+  background-color: #77d6b0 !important;
+  border-color: #77d6b0 !important;
   color: white !important;
 }
 
 .button-outline {
   margin: 0.5rem !important;
   background-color: white !important;
-  border-color: #1a936f !important;
-  color: #1a936f !important;
+  border-color: #77d6b0 !important;
+  color: #77d6b0 !important;
 }
 .card-content {
-  max-height: 65vh;
+  max-height: 62vh;
 }
-
+.card-content2 {
+  height: 62vh;
+}
+.user-title {
+  padding: 1rem;
+}
 .subtitle {
   font-size: 1.5rem;
+  margin-bottom: 1vh;
 }
 .secondary-button {
   height: 1.8rem;
@@ -46,6 +52,7 @@ button:not(.close) {
   width: 96%;
   display: inline-block;
 }
+.card-header,
 .modal-body {
   text-align: center;
 }
@@ -68,4 +75,22 @@ body {
     ),
     url("/images/frutas.jpg");
   background-size: cover;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+#formBasicRange {
+  background: rgb(242, 3, 69);
+  background: linear-gradient(
+    90deg,
+    rgba(242, 3, 69, 1) 0%,
+    rgba(214, 154, 26, 1) 20%,
+    rgba(26, 147, 111, 1) 26%,
+    rgba(214, 154, 26, 1) 42%,
+    rgba(242, 3, 69, 1) 61%
+  );
 }

@@ -24,8 +24,8 @@ function Preferencias(props) {
 
         <Card.Body>
           <div className="overflow-auto card-content">
-            <div>
-              <span className="subtitle">Favoritos </span>
+            <div className="subtitle">
+              <span>Favoritos </span>
               <Button
                 className="secondary-button"
                 onClick={() => {
@@ -36,20 +36,22 @@ function Preferencias(props) {
                 <FontAwesomeIcon icon={faEdit} />
               </Button>
             </div>
-            {props.user.favoritos.length > 0 ? (
-              props.user.favoritos.map((fav) => {
-                return (
-                  <Badge key={fav} pill variant="secondary" className="mr-1">
-                    {fav.toLowerCase()}
-                  </Badge>
-                );
-              })
-            ) : (
-              <p>No has seleccionado favoritos.</p>
-            )}
+            <div className="preferences">
+              {props.user.favoritos.length > 0 ? (
+                props.user.favoritos.map((fav) => {
+                  return (
+                    <Badge key={fav} pill variant="secondary" className="mr-1">
+                      {fav.toLowerCase()}
+                    </Badge>
+                  );
+                })
+              ) : (
+                <p>No has seleccionado favoritos.</p>
+              )}
+            </div>
             <hr></hr>
-            <div>
-              <span className="subtitle">Desagradables </span>
+            <div className="subtitle">
+              <span>Desagradables </span>
               <Button
                 className="secondary-button"
                 onClick={() => {
@@ -60,20 +62,22 @@ function Preferencias(props) {
                 <FontAwesomeIcon icon={faEdit} />
               </Button>
             </div>
-            {props.user.desagradables.length > 0 ? (
-              props.user.desagradables.map((fav) => {
-                return (
-                  <Badge key={fav} pill variant="secondary" className="mr-1">
-                    {fav.toLowerCase()}
-                  </Badge>
-                );
-              })
-            ) : (
-              <p>No has seleccionado desagradables.</p>
-            )}
+            <div className="preferences">
+              {props.user.desagradables.length > 0 ? (
+                props.user.desagradables.map((fav) => {
+                  return (
+                    <Badge key={fav} pill variant="secondary" className="mr-1">
+                      {fav.toLowerCase()}
+                    </Badge>
+                  );
+                })
+              ) : (
+                <p>No has seleccionado desagradables.</p>
+              )}
+            </div>
             <hr></hr>
-            <div>
-              <span className="subtitle">Alergias </span>
+            <div className="subtitle">
+              <span>Alergias </span>
               <Button
                 className="secondary-button"
                 onClick={() => {
@@ -84,17 +88,24 @@ function Preferencias(props) {
                 <FontAwesomeIcon icon={faEdit} />
               </Button>
             </div>
-            {props.user.alergias.length > 0 ? (
-              props.user.alergias.map((fav) => {
-                return (
-                  <Badge key={fav} pill variant="secondary" className="mr-1">
-                    {fav.toLowerCase()}
-                  </Badge>
-                );
-              })
-            ) : (
-              <p>No has seleccionado alergias.</p>
-            )}
+            <div className="preferences">
+              {props.user.alergias.length > 0 ? (
+                props.user.alergias.map((fav) => {
+                  return (
+                    <Badge
+                      key={fav}
+                      pill
+                      variant="secondary"
+                      className="mr-1 mb-1"
+                    >
+                      {fav.toLowerCase()}
+                    </Badge>
+                  );
+                })
+              ) : (
+                <p>No has seleccionado alergias.</p>
+              )}
+            </div>
           </div>
         </Card.Body>
       </Card>

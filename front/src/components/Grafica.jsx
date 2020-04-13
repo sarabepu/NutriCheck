@@ -6,11 +6,17 @@ function Grafica(props) {
   return (
     <Container className="graph-card">
       <Card>
-        <Card.Header>Mi historial</Card.Header>
+        <Card.Header>Mi progreso</Card.Header>
 
         <Card.Body>
           <div className="overflow-auto card-content">
-            <div className="chart-wrapper"></div>
+            <div className="chart-wrapper">
+              <LineChart
+                data={props.user.historial}
+                title="Peso"
+                color="#F28444"
+              />
+            </div>
           </div>
         </Card.Body>
       </Card>
