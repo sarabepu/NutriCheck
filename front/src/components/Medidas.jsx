@@ -93,6 +93,19 @@ function Medidas(props) {
       });
   };
 
+  const clasificacion=()=>{
+    let imc= (peso/estatura**2).toFixed(2)
+    if (imc<16) return "Delgadez severa";
+    else if(16<=imc && imc <17) return "Delgadez moderada";
+    else if(17<= imc && imc<18.5) return "Delgadez aceptable"
+    else if(18.5<= imc && imc<25) return "Peso normal"
+    else if(25<= imc && imc<30) return "Sobrepeso"
+    else if(30<= imc && imc<35) return "Obesidad tipo I"
+    else if(35<= imc && imc<40) return "Obesidad tipo II"
+    else if(40<= imc && imc<50) return "Obesidad tipo III"
+    else if(50<= imc ) return "Obesidad tipo IV (extrema)"
+  };
+
   return (
     <Container className="sub-card">
       <Card>
@@ -154,24 +167,27 @@ function Medidas(props) {
               </Button>
             </Form.Row>
             <br />
-            <span className="subtitle"> Información corporal </span>
+            <span className="subtitle"> Indice de masa corporal</span>
             
             <br />
+
             <Form.Row>
-              
               <Form.Group as={Col} >
-                <Form.Label>Indice de masa corporal</Form.Label>
-                <h3>
+                <h5>
                     {
-                      (peso/estatura**2).toFixed(2)
-                    }
-                  </h3>
+                      (peso/estatura**2).toFixed(2) 
+                    }: {clasificacion()}
+                  </h5>
                 <div id="formBasicRange">
                   
                 <Form.Control type="range" value={(peso/estatura**2).toFixed(2)} min={10} max={50}  disabled />
                 </div>
               </Form.Group>
             </Form.Row>
+
+            
+
+
           </Form>
         </Card.Body>
       </Card>
