@@ -1,5 +1,5 @@
-import React, { useState} from "react";
-import {  Form, Button } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Form, Button, Alert } from 'react-bootstrap';
 
 //Método para hacer post con fetch
 async function postData(url = '', data = {}) {
@@ -24,31 +24,53 @@ function Login(props) {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  
+
+  const [errorO, setError] = useState(false)
   const [nutri, setNutri] = useState(false)
 
-  const handleSubmit=()=>{
-    let paciente={username,password,nutri};
+  const handleSubmit = () => {
+    let paciente = { username, password, nutri };
     console.log(paciente);
-    postData('http://localhost:3000/login',paciente)
-    .then((data)=>props.setUser(data.user));
+    postData('http://localhost:3000/login', paciente)
+      .then((data) => {
+        if (data.error) {
+          setError(true)
+        }
+        else {
+          props.setUser(data.user)
+        }
+      }
+      )
+
+
   };
 
   return (
+    <>
+      {
+        errorO ?
+          <Alert variant="danger" onClose={() => setError(false)} dismissible>
+            <Alert.Heading>El usuario o la contraseña son incorrectos</Alert.Heading>
+            
+          </Alert>
+          :
+          <>
+          </>
+      }
 
-    
+      <Form inline >
 
-    <Form inline >
-      
-          <Form.Control type="text" placeholder="Username"  onChange={e => setUsername(e.target.value)} />
-    
-          <Form.Control type="password" placeholder="Password"   className=" ml-sm-2" onChange={e => setPassword(e.target.value)}/>
-        
-          <Form.Check type="checkbox" label=" Soy Nutricionista" className=" ml-sm-2 white-text" onChange={e => setNutri(e.target.value)}/>
-        <Button  variant="primary" className=" ml-sm-2" onClick={handleSubmit}>Login
-       
+        <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
+
+        <Form.Control type="password" placeholder="Password" className=" ml-sm-2" onChange={e => setPassword(e.target.value)} />
+
+        <Form.Check type="checkbox" label=" Soy Nutricionista" className=" ml-sm-2 white-text" onChange={e => setNutri(e.target.value)} />
+        <Button variant="primary" className=" ml-sm-2" onClick={handleSubmit}>Login
+
     </Button>
-    </Form>
+
+      </Form>
+    </>
   );
 }
 export default Login;
