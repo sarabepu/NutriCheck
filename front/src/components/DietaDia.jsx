@@ -4,7 +4,7 @@ import { Card, Container } from "react-bootstrap";
 function DietaDia(props) {
   let dia = new Date().getDay();
   return (
-    <Container className="sub-card">
+    <Container className="sub-sub-card">
       <Card>
         <Card.Header>Mi dieta del día</Card.Header>
 
@@ -13,13 +13,13 @@ function DietaDia(props) {
             {props.user.dieta && props.user.dieta[dia] ? (
               <>
                 <div className="subtitle">Desayuno</div>
-                <div className="diet">props.user.dieta[dia][0]</div>
+                <div className="diet">{props.user.dieta[dia][0]}</div>
                 <hr />
                 <div className="subtitle">Almuerzo</div>
-                <div className="diet">props.user.dieta[dia][1]</div>
+                <div className="diet">{props.user.dieta[dia][1]}</div>
                 <hr />
                 <div className="subtitle">Cena</div>
-                <div className="diet">props.user.dieta[dia][2]/</div>
+                <div className="diet">{props.user.dieta[dia][2]}</div>
               </>
             ) : (
               <p>

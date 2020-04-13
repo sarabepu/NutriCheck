@@ -7,7 +7,7 @@ function Registro(props) {
   const [isPaciente, setPaciente] = useState(true);
 
   return (
-    <Container class="main-container" id="main-card">
+    <Container id="main-card">
       <Card>
         <Card.Header>
           <Nav variant="tabs" defaultActiveKey="#first">
@@ -20,7 +20,7 @@ function Registro(props) {
           </Nav>
         </Card.Header>
 
-        <Card.Body>
+        <Card.Body id="register">
           {isPaciente ? (
             <RegistroPaciente setUser={props.setUser} />
           ) : (

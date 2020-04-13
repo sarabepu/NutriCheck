@@ -1,6 +1,7 @@
 import React from "react";
 import Registro from "./Registro";
 import Datos from "./Datos";
+import Pacientes from "./Pacientes";
 
 function Home(props) {
   console.log(props.user);
@@ -12,7 +13,9 @@ function Home(props) {
         </>
       ) : (
         <>
-          {props.user.nutri || (
+          {props.user.nutri ? (
+            <Pacientes user={props.user}></Pacientes>
+          ) : (
             <Datos user={props.user} setUser={props.setUser}></Datos>
           )}
         </>

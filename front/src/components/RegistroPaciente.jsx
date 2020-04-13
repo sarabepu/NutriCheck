@@ -41,18 +41,13 @@ function RegistroPaciente(props) {
   const [nutris, setNutris] = useState([]);
 
   //Looks for nutricionistas
-  useEffect(
-    (nutris) => {
-      postData("http://localhost:3000/user", { user: { nutri: true } }).then(
-        (data) => {
-          console.log(data, "resultado");
-          setNutris(data);
-          console.log(nutris, "lista");
-        }
-      );
-    },
-    [nutris]
-  );
+  useEffect(() => {
+    postData("http://localhost:3000/user", { user: { nutri: true } }).then(
+      (data) => {
+        setNutris(data);
+      }
+    );
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -86,7 +81,6 @@ function RegistroPaciente(props) {
         desagradables: [],
         alergias: [],
         historial: history,
-        dieta: [[], [], [], [], [], [], []],
       },
     };
     console.log(paciente);

@@ -4,7 +4,9 @@ import Login from "./Login";
 
 function NavBar(props) {
   const logout = () => {
-    fetch("http://localhost:3000/logout").then(props.setUser(null));
+    fetch("http://localhost:3000/logout").then(() => {
+      props.setUser(null);
+    });
   };
   return (
     <>
@@ -30,6 +32,11 @@ function NavBar(props) {
                 {props.user.nutri || (
                   <Nav.Link className="white-text" href="#progreso">
                     Mi progreso
+                  </Nav.Link>
+                )}
+                {!props.user.nutri || (
+                  <Nav.Link className="white-text" href="/">
+                    Mis pacientes
                   </Nav.Link>
                 )}
                 <Button className=" ml-sm-2" onClick={logout}>

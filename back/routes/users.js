@@ -47,4 +47,11 @@ router.put("/:username", function (req, res) {
   });
 });
 
+// Get patients
+router.get("/:username/patients", function (req, res) {
+  db.findMany({ "nutricionista-id": req.params.username }, "users", (users) =>
+    res.send(users)
+  );
+});
+
 module.exports = router;

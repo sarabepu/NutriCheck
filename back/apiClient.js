@@ -1,5 +1,6 @@
 const axios = require("axios");
-let translateKey = `${process.env.translateKey}`;
+const translateKey = `${process.env.translateKey}`;
+const spoonKey = `${process.env.spoonKey}`;
 
 function APIClient() {
   const client = {};
@@ -22,6 +23,26 @@ function APIClient() {
     })
       .then((response) => response.data)
       .then((s) => s.split(">")[1].split("<")[0]);
+  };
+
+  client.generateMeals = function (calories, diet, query) {
+    return axios({
+      method: "GET",
+      url:
+        "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate",
+      headers: {
+        "content-type": "application/octet-stream",
+        "x-rapidapi-host":
+          "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "x-rapidapi-key": spoonKey,
+      },
+      params: {
+        timeFrame: "week",
+        targetCalories: calories,
+        diet: "vegetarian",
+        exclude: query,
+      },
+    });
   };
 
   return client;

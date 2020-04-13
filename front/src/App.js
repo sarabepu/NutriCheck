@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/Navbar";
 import Home from "./components/Home";
-import Dashboard from "./components/Dashboard";
 
 function App() {
   const [user, setUser] = useState(null);
