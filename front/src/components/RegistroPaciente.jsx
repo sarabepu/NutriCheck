@@ -42,22 +42,42 @@ function RegistroPaciente(props) {
   const [medidas, setMedidas] = useState(false)
 
   const [nutris, setNutris] = useState([]);
-  //Looks for nutricionistas
-             
-  useEffect( (nutris) =>{
+
+  //Looks for nutricionistas           
+  useEffect((nutris) => {
     postData('http://localhost:3000/user', { user: { nutri: true } })
-    .then((data) => {
-      console.log(data, "resultado")
-      setNutris(data);
-      console.log(nutris, "lista")
-    })
-  },[nutris.length]);
-  
+      .then((data) => {
+        console.log(data, "resultado")
+        setNutris(data);
+        console.log(nutris, "lista")
+      })
+  }, [nutris.length]);
+
 
 
   const handleSubmit = () => {
     let paciente = {
-      "user": { username, nombre, password, apellido, tipoDocumento, documento, sexo, edad, estatura, peso, cintura, pantorrilla, brazo, nutricionista, nutri: false }
+      "user": {
+        username,
+        nombre,
+        password,
+        apellido,
+        tipoDocumento,
+        documento,
+        sexo,
+        edad,
+        estatura,
+        peso,
+        cintura,
+        pantorrilla,
+        brazo,
+        nutricionista,
+        nutri: false,
+        favoritos: [],
+        desagradables: [],
+        alergias: []
+      }
+
     };
     console.log(paciente);
     postData('http://localhost:3000/user/new', paciente)
@@ -78,12 +98,12 @@ function RegistroPaciente(props) {
       <Form.Row>
         <Form.Group as={Col} controlId="formGridUserName">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} />
+          <Form.Control required type="email" placeholder="Username" onChange={e => setUserName(e.target.value)} />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Contraseña</Form.Label>
-          <Form.Control type="password" placeholder="Contraseña" onChange={e => setPassword(e.target.value)} />
+          <Form.Control required type="password" placeholder="Contraseña" onChange={e => setPassword(e.target.value)} />
         </Form.Group>
       </Form.Row>
 
@@ -91,38 +111,38 @@ function RegistroPaciente(props) {
       <Form.Row>
         <Form.Group as={Col} controlId="formGridNombre">
           <Form.Label>Nombres</Form.Label>
-          <Form.Control type="text" placeholder="Nombres" onChange={e => setNombre(e.target.value)} />
+          <Form.Control required type="text" placeholder="Nombres" onChange={e => setNombre(e.target.value)} />
         </Form.Group>
         <Form.Group as={Col} controlId="formGridApellido">
           <Form.Label>Apellidos</Form.Label>
-          <Form.Control type="text" placeholder="Apellidos" onChange={e => setApellido(e.target.value)} />
+          <Form.Control required type="text" placeholder="Apellidos" onChange={e => setApellido(e.target.value)} />
         </Form.Group>
       </Form.Row>
 
       <Form.Row>
         <Form.Group as={Col} controlId="formGridTipoDocumento">
           <Form.Label>Tipo de documento</Form.Label>
-          <Form.Control as="select" onChange={e => setTipoDocumento(e.target.value)}>
+          <Form.Control as="select" required onChange={e => setTipoDocumento(e.target.value)}>
             <option>CC</option>
             <option>TI</option>
           </Form.Control>
         </Form.Group>
         <Form.Group as={Col} controlId="formGridDocumento">
           <Form.Label>Número</Form.Label>
-          <Form.Control type="text" placeholder="Documento" onChange={e => setDocumento(e.target.value)} />
+          <Form.Control required requiredtype="text" placeholder="Documento" onChange={e => setDocumento(e.target.value)} />
         </Form.Group>
       </Form.Row>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridSexo">
           <Form.Label>Sexo</Form.Label>
-          <Form.Control as="select" onChange={e => setSexo(e.target.value)}>
+          <Form.Control required as="select" onChange={e => setSexo(e.target.value)}>
             <option>Femenino</option>
             <option>Masculino</option>
-          </Form.Control>
+          </Form.Control >
         </Form.Group>
         <Form.Group as={Col} controlId="formGridEdad">
           <Form.Label>Edad</Form.Label>
-          <Form.Control type="number" placeholder="Edad" onChange={e => setEdad(e.target.value)} />
+          <Form.Control required type="number" placeholder="Edad" onChange={e => setEdad(e.target.value)} />
         </Form.Group>
       </Form.Row>
       {(nutris) ?
@@ -185,7 +205,7 @@ function RegistroPaciente(props) {
       }
 
       <Form.Row>
-        <Button variant="primary" onClick={handleSubmit}>
+        <Button variant="primary" type="submit" onClick={handleSubmit}>
           Registrate
     </Button>
         <Button className=" ml-sm-2 button-outline" onClick={() => setMedidas(!medidas)}>
