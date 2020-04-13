@@ -4,7 +4,7 @@
 
 Sara Bejarano, Mariana Rodriguez
 
-## Descripction:
+## Description:
 
 Nutricheck is a Webapp designed to help nutritionists and patients track their progress.
 
@@ -17,14 +17,19 @@ Nutricheck is a Webapp designed to help nutritionists and patients track their p
 
 ## Deployment
 
+You can check the deployed version [here](https://nutricheck.herokuapp.com/)
 - Clone this repo
 - Create enviromental variables named " "secretkey", "uriNutri" (mongo uri) and "PORT" (5000)
 - cd front
 - Run the command for isntalling the dependencies npm install
 - run npm start
-- cd .. and cd back
+- cd .. 
 - run nodemon app.js
 - Go to localhost:5000 on your browser
+
+## Color palette
+  ![Color palette](https://i.imgur.com/Ra6uGpf.png)
+
 
 ## Screenshots
 
