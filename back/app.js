@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const cors = require("cors");
 
-var allowedOrigins = ["http://localhost:5000"];
+const allowedOrigins = ["http://localhost:5000"];
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -31,15 +31,17 @@ app.use(bodyParser.json());
 
 configPassport(app);
 
-var indexRouter = require("./routes/index");
+const indexRouter = require("./routes/index");
 
-var usersRouter = require("./routes/users");
+const usersRouter = require("./routes/users");
+const ingredientsRouter = require("./routes/ingredients");
 
-var passportRouter = require("./routes/passport");
+const passportRouter = require("./routes/passport");
 
 app.use("/", indexRouter);
 app.use("/", passportRouter);
 app.use("/user", usersRouter);
+app.use("/ingredients", ingredientsRouter);
 
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)

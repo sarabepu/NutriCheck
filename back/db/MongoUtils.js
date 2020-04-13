@@ -92,6 +92,24 @@ function MongoUtils() {
     });
   };
 
+  mu.updateOne = (cbk, colName, object, update) => {
+    const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
+    client.connect((err) => {
+      if (err) throw err;
+      console.log(update, "UPDATE");
+      console.log(object, "OBJECT");
+      if (object == undefined) {
+        throw new Error("Object can't be null or udefined");
+      }
+      const collection = client.db(dbName).collection(colName);
+      collection.updateOne(object, update, (err, result) => {
+        if (err) throw err;
+        cbk(result);
+        client.close();
+      });
+    });
+  };
+
   return mu;
 }
 
