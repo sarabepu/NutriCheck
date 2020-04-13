@@ -25,7 +25,9 @@ button {
 .card-content {
   max-height: 65vh;
 }
-
+.user-title{
+  padding:1rem;
+}
 .subtitle {
   font-size: 1.5rem;
 }

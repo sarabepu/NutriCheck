@@ -15,7 +15,7 @@ function Home(props) {
         :
         (
           <>
-            <h1 className="white-text" align="center">
+            <h1 className="white-text user-title" align="center">
               Perfil de {props.user.username}
             </h1>
             {props.user.nutri || (
