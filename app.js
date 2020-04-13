@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const path = require("path");
 const cors = require("cors");
 
 const allowedOrigins = ["http://localhost:5000"];
@@ -21,6 +21,9 @@ app.use(
     credentials: true,
   })
 );
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "front/build")));
 
 const configPassport = require("./configurePassport.js");
 
@@ -43,4 +46,6 @@ app.use("/", passportRouter);
 app.use("/user", usersRouter);
 app.use("/ingredients", ingredientsRouter);
 
-module.exports = app;
+//module.exports = app;
+const port = 3000;
+app.listen(port, () => console.log(`App listening on ${port}`));

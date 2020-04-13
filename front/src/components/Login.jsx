@@ -11,7 +11,7 @@ function Login(props) {
   const handleSubmit = () => {
     let paciente = { username, password, nutri };
     console.log(paciente);
-    postData("http://localhost:3000/login", paciente)
+    postData("/login", paciente)
       .then((data) => {
         if (data.error) {
           //contraseña
