@@ -7,7 +7,7 @@ function Registro(props) {
   const [isPaciente, setPaciente] = useState(true);
 
   return (
-    <Container id="main-card">
+    <Container class="main-container" id="main-card">
       <Card>
         <Card.Header>
           <Nav variant="tabs" defaultActiveKey="#first">

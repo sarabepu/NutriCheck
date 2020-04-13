@@ -6,7 +6,7 @@ function Grafica(props) {
   return (
     <Container className="graph-card">
       <Card>
-        <Card.Header>Mi progreso</Card.Header>
+        <Card.Header>Evolución</Card.Header>
 
         <Card.Body>
           <div className="overflow-auto card-content">

@@ -8,7 +8,7 @@ function NavBar(props) {
   };
   return (
     <>
-      <Navbar expand="lg" id="navbar-principal">
+      <Navbar expand="lg" fixed="top" id="navbar-principal">
         <Navbar.Brand className="white-text" href="/">
           Nutricheck
         </Navbar.Brand>

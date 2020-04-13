@@ -7,18 +7,20 @@ import Medidas from "./Medidas";
 
 function Datos(props) {
   return (
-    <Container>
-      <h1 id="datos" className="white-text mt-2" align="center">
-        Mis datos ({props.user.username})
-      </h1>
-      <Row>
-        <Medidas as={Col} user={props.user} setUser={props.setUser} />
-        <Preferencias
-          as={Col}
-          user={props.user}
-          setUser={props.setUser}
-        ></Preferencias>
-      </Row>
+    <Container className="main-container">
+      <Container>
+        <h1 id="datos" className="white-text mt-5" align="center">
+          Mis datos ({props.user.username})
+        </h1>
+        <Row>
+          <Medidas as={Col} user={props.user} setUser={props.setUser} />
+          <Preferencias
+            as={Col}
+            user={props.user}
+            setUser={props.setUser}
+          ></Preferencias>
+        </Row>
+      </Container>
       <br></br>
       <Row>
         <Dashboard as={Col} user={props.user}></Dashboard>

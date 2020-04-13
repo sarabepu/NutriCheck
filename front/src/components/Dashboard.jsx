@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Grafica from "./Grafica";
+import DietaDia from "./DietaDia";
 
 function Dashboard(props) {
   return (
@@ -10,6 +11,7 @@ function Dashboard(props) {
       </h1>
       <Row>
         <Grafica as={Col} user={props.user} setUser={props.setUser}></Grafica>
+        <DietaDia as={Col} user={props.user}></DietaDia>
       </Row>
     </Container>
   );

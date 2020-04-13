@@ -1,6 +1,10 @@
 #main-card {
   width: 50%;
-  padding-top: 1%;
+  padding-top: 70px;
+}
+
+.main-container {
+  margin-top: 70px;
 }
 
 #navbar-principal {
@@ -60,6 +64,18 @@ button:not(.close) {
 .nav-item {
   display: flex;
   align-items: center;
+}
+.alert-heading {
+  font-size: 0.8rem;
+  height: 0.8rem;
+  margin: 0;
+}
+.alert-danger {
+  margin: 0 8px;
+}
+.alert-danger .close {
+  padding-top: 0;
+  padding-right: 4px;
 }
 
 .svg-inline--fa {

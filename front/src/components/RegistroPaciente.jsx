@@ -96,6 +96,7 @@ function RegistroPaciente(props) {
         desagradables: [],
         alergias: [],
         historial: history,
+        dieta: [[], [], [], [], [], [], []],
       },
     };
     console.log(paciente);
