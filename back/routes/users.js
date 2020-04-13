@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db/MongoUtils");
-
 /* GET home page. */
 router.get("/", (req, res) => res.send("Hello World!"));
 
@@ -18,15 +17,17 @@ router.post("/profile", (req, res) => {
   db.findOne(req.body.user, "users", (user) => res.send(user));
 });
 
-router.post("/update",(req,res)=>{
-    db.updateOne(req.body.filter, req.body.query, 'users', (data) => res.send(data));
+router.post("/update", (req, res) => {
+  db.updateOne((user) => res.send(user), "users", req.body.filter, {
+    $set: req.body.query,
+  });
 });
 // Get users
 router.post("/", (req, res) => {
   db.findMany(req.body.user, "users", (user) => res.send(user));
 });
 
-// Update list
+// Update user
 router.put("/:username", function (req, res) {
   let object = req.body.object;
   let name = req.body.name;

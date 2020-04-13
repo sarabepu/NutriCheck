@@ -10,7 +10,7 @@
 .white-text {
   color: white !important;
 }
-button {
+button:not(.close) {
   background-color: #1a936f !important;
   border-color: #1a936f !important;
   color: white !important;
@@ -36,6 +36,9 @@ button {
 .sub-card {
   max-width: 35vw;
   margin: 2vh auto;
+}
+.modal-body {
+  text-align: center;
 }
 
 .svg-inline--fa {
