@@ -29,7 +29,7 @@ passport.use(
         });
       } else {
         console.log("passport - username doesn't exist");
-        cbk(new Error("no existe el usuario"));
+        cb(new Error("no existe el usuario"));
       }
     });
   })

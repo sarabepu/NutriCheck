@@ -5,7 +5,7 @@ const router = express.Router();
 // Define routes.
 
 router.get("/fail", function (req, res) {
-  res.send(new Error("Contraseña incorrecta"));
+  res.send({error:"Contraseña incorrecta"});
 });
 
 router.post(

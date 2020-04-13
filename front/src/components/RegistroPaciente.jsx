@@ -39,7 +39,20 @@ function RegistroPaciente(props) {
   const [medidas, setMedidas] = useState(false);
 
   const [nutris, setNutris] = useState([]);
+
   //Looks for nutricionistas
+  useEffect(
+    (nutris) => {
+      postData("http://localhost:3000/user", { user: { nutri: true } }).then(
+        (data) => {
+          console.log(data, "resultado");
+          setNutris(data);
+          console.log(nutris, "lista");
+        }
+      );
+    },
+    [nutris.length]
+  );
 
   useEffect(
     (nutris) => {
@@ -54,7 +67,8 @@ function RegistroPaciente(props) {
     [nutris.length]
   );
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     let paciente = {
       user: {
         username,
@@ -72,6 +86,9 @@ function RegistroPaciente(props) {
         brazo,
         nutricionista,
         nutri: false,
+        favoritos: [],
+        desagradables: [],
+        alergias: [],
       },
     };
     console.log(paciente);
@@ -88,12 +105,13 @@ function RegistroPaciente(props) {
   };
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridUserName">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            type="text"
+            required
+            type="email"
             placeholder="Username"
             onChange={(e) => setUserName(e.target.value)}
           />
@@ -102,6 +120,7 @@ function RegistroPaciente(props) {
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Contraseña</Form.Label>
           <Form.Control
+            required
             type="password"
             placeholder="Contraseña"
             onChange={(e) => setPassword(e.target.value)}
@@ -113,6 +132,7 @@ function RegistroPaciente(props) {
         <Form.Group as={Col} controlId="formGridNombre">
           <Form.Label>Nombres</Form.Label>
           <Form.Control
+            required
             type="text"
             placeholder="Nombres"
             onChange={(e) => setNombre(e.target.value)}
@@ -121,6 +141,7 @@ function RegistroPaciente(props) {
         <Form.Group as={Col} controlId="formGridApellido">
           <Form.Label>Apellidos</Form.Label>
           <Form.Control
+            required
             type="text"
             placeholder="Apellidos"
             onChange={(e) => setApellido(e.target.value)}
@@ -133,6 +154,7 @@ function RegistroPaciente(props) {
           <Form.Label>Tipo de documento</Form.Label>
           <Form.Control
             as="select"
+            required
             onChange={(e) => setTipoDocumento(e.target.value)}
           >
             <option>CC</option>
@@ -142,7 +164,8 @@ function RegistroPaciente(props) {
         <Form.Group as={Col} controlId="formGridDocumento">
           <Form.Label>Número</Form.Label>
           <Form.Control
-            type="text"
+            required
+            requiredtype="text"
             placeholder="Documento"
             onChange={(e) => setDocumento(e.target.value)}
           />
@@ -151,7 +174,11 @@ function RegistroPaciente(props) {
       <Form.Row>
         <Form.Group as={Col} controlId="formGridSexo">
           <Form.Label>Sexo</Form.Label>
-          <Form.Control as="select" onChange={(e) => setSexo(e.target.value)}>
+          <Form.Control
+            required
+            as="select"
+            onChange={(e) => setSexo(e.target.value)}
+          >
             <option>Femenino</option>
             <option>Masculino</option>
           </Form.Control>
@@ -159,6 +186,7 @@ function RegistroPaciente(props) {
         <Form.Group as={Col} controlId="formGridEdad">
           <Form.Label>Edad</Form.Label>
           <Form.Control
+            required
             type="number"
             placeholder="Edad"
             onChange={(e) => setEdad(e.target.value)}
@@ -177,7 +205,11 @@ function RegistroPaciente(props) {
               multiple
             >
               {nutris.map((value, index) => {
-                return <option key={index}>{value.nombre}</option>;
+                return (
+                  <option key={index}>
+                    {value.nombre} {value.apellido}
+                  </option>
+                );
               })}
             </Form.Control>
           </Form.Group>
@@ -240,7 +272,7 @@ function RegistroPaciente(props) {
       )}
 
       <Form.Row>
-        <Button variant="primary" onClick={handleSubmit}>
+        <Button variant="primary" type="submit">
           Registrate
         </Button>
         <Button

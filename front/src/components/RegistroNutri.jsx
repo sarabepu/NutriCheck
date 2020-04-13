@@ -30,7 +30,8 @@ function RegistroNutri(props) {
 
   const [password, setPassword] = useState("")
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     let nutri = {
       user: { username, nombre, apellido, password, nutri: true }
     };
@@ -49,32 +50,32 @@ function RegistroNutri(props) {
   };
 
   return (
-    <Form>
+    <Form  onSubmit={handleSubmit}>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridUsername">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
+          <Form.Control required type="email" placeholder="Username" onChange={e => setUsername(e.target.value)} />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Contraseña</Form.Label>
-          <Form.Control type="password" placeholder="Contraseña" onChange={e => setPassword(e.target.value)} />
+          <Form.Control required type="password" placeholder="Contraseña" onChange={e => setPassword(e.target.value)} />
         </Form.Group>
 
       </Form.Row>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridNombre">
           <Form.Label>Nombres</Form.Label>
-          <Form.Control type="text" placeholder="Nombres" onChange={e => setNombre(e.target.value)} />
+          <Form.Control required type="text" placeholder="Nombres" onChange={e => setNombre(e.target.value)} />
         </Form.Group>
         <Form.Group as={Col} controlId="formGridApellido">
           <Form.Label>Apellidos</Form.Label>
-          <Form.Control type="text" placeholder="Apellidos" onChange={e => setApellido(e.target.value)} />
+          <Form.Control required type="text" placeholder="Apellidos" onChange={e => setApellido(e.target.value)} />
         </Form.Group>
 
 
       </Form.Row>
-      <Button variant="primary" onClick={handleSubmit}>
+      <Button variant="primary" type="submit">
         Registrarme
     </Button>
     </Form>

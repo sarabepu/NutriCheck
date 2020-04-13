@@ -12,7 +12,9 @@ function Home(props) {
         </>
       ) : (
         <>
-          <h1 className="white-text">Perfil de {props.user.username}</h1>
+          <h1 className="white-text" align="center">
+            Perfil de {props.user.username}
+          </h1>
           {props.user.nutri || (
             <Datos user={props.user} setUser={props.setUser}></Datos>
           )}
