@@ -29,7 +29,7 @@ function Datos(props) {
         Comentarios de mi nutricionista: {props.user.nutricionista}
       </h1>
       <Card>
-        <Card.Header>12/13/2020</Card.Header>
+        <Card.Header className="font-match">12/13/2020</Card.Header>
         <Card.Body></Card.Body>
       </Card>
     </Container>

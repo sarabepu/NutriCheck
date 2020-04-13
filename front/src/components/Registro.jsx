@@ -12,10 +12,10 @@ function Registro(props) {
         <Card.Header>
           <Nav variant="tabs" defaultActiveKey="#first">
             <Nav.Item id="button-paciente" onClick={() => setPaciente(true)}>
-              <Nav.Link href="#first">Paciente</Nav.Link>
+              <Nav.Link href="#first" className="font-match">Paciente</Nav.Link>
             </Nav.Item>
             <Nav.Item id="button-Nutri" onClick={() => setPaciente(false)}>
-              <Nav.Link href="#second">Nutricionista</Nav.Link>
+              <Nav.Link href="#second" className="font-match">Nutricionista</Nav.Link>
             </Nav.Item>
           </Nav>
         </Card.Header>

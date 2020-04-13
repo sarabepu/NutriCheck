@@ -10,7 +10,14 @@
 #navbar-principal {
   background-color: #114b5f !important;
 }
+.font-match
+{
+  font-family: 'Merriweather', serif !important;
+}
 
+body{
+  font-family: 'Montserrat', sans-serif;
+}
 .white-text {
   color: white !important;
 }

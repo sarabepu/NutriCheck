@@ -11,7 +11,7 @@ function Preferencias(props) {
   return (
     <Container className="sub-card">
       <Card>
-        <Card.Header>
+        <Card.Header className="font-match">
           Mis preferencias alimenticias
           <PreferenciasAgregar
             list={list}

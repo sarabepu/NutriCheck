@@ -6,7 +6,7 @@ function DietaDia(props) {
   return (
     <Container className="sub-sub-card">
       <Card>
-        <Card.Header>Mi dieta del día</Card.Header>
+        <Card.Header className="font-match">Mi dieta del día</Card.Header>
 
         <Card.Body>
           <div className="overflow-auto card-content">

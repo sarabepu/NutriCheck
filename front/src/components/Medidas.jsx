@@ -117,7 +117,7 @@ function Medidas(props) {
   return (
     <Container className="sub-card">
       <Card>
-        <Card.Header>Mis medidas</Card.Header>
+        <Card.Header className="font-match">Mis medidas</Card.Header>
         <Card.Body>
           <div className="card-content2">
             <Form onSubmit={handleSubmit}>
