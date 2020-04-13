@@ -30,7 +30,8 @@ function RegistroNutri(props) {
 
   const [password, setPassword] = useState("")
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     let nutri = {
       user: { username, nombre, apellido, password, nutri: true }
     };
@@ -49,7 +50,7 @@ function RegistroNutri(props) {
   };
 
   return (
-    <Form>
+    <Form  onSubmit={handleSubmit}>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridUsername">
           <Form.Label>Email</Form.Label>
@@ -74,7 +75,7 @@ function RegistroNutri(props) {
 
 
       </Form.Row>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
+      <Button variant="primary" type="submit">
         Registrarme
     </Button>
     </Form>

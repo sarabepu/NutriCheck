@@ -55,7 +55,8 @@ function RegistroPaciente(props) {
 
 
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     let paciente = {
       "user": {
         username,
@@ -94,7 +95,7 @@ function RegistroPaciente(props) {
   };
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridUserName">
           <Form.Label>Email</Form.Label>
@@ -154,7 +155,7 @@ function RegistroPaciente(props) {
             <Form.Control as="select" onChange={e => setNutricionista(e.target.value)} multiple>
 
               {nutris.map((value, index) => {
-                return <option key={index}>{value.nombre}</option>
+                return <option key={index}>{value.nombre} {value.apellido}</option>
               })}
 
             </Form.Control>
@@ -205,7 +206,7 @@ function RegistroPaciente(props) {
       }
 
       <Form.Row>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+        <Button variant="primary" type="submit">
           Registrate
     </Button>
         <Button className=" ml-sm-2 button-outline" onClick={() => setMedidas(!medidas)}>
