@@ -23,6 +23,20 @@ function MongoUtils() {
       }
     });
   };
+
+  mu.updateOne = (filter, query, colName, cbk) => {
+    console.log("Entra a la base de datos updateOne");
+    const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
+    client.connect((err) => {
+      if (err) throw err;
+      const collection = client.db(dbName).collection(colName);
+      collection.updateOne(filter, { $set: query})
+        .then(
+          data => cbk(data)
+          );
+    });
+  };
+
   mu.findMany = (query, colName, cbk) => {
     console.log("entra la base de datoss findMany", query);
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
