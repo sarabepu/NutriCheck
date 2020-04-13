@@ -69,9 +69,8 @@ function RegistroPaciente(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const d = new Date();
     let history =
-      peso == "0"
+      peso === "0"
         ? []
         : [
             {

@@ -1,6 +1,6 @@
 #main-card {
   width: 50%;
-  padding-top: 5%;
+  padding-top: 1%;
 }
 
 #navbar-principal {
@@ -41,6 +41,11 @@ button:not(.close) {
 }
 .modal-body {
   text-align: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
 }
 
 .svg-inline--fa {
