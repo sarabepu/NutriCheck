@@ -1,7 +1,6 @@
 import React from "react";
-import Preferencias from "./Preferencias";
-
 import { Row, Col, Container } from "react-bootstrap";
+import Preferencias from "./Preferencias";
 import Medidas from "./Medidas";
 
 function Datos(props) {
