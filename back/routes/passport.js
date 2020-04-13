@@ -18,6 +18,8 @@ router.post(
 
 router.get("/logout", function (req, res) {
   req.logout();
+  
+  console.log('si llego a log outtttt')
 });
 
 router.get(
