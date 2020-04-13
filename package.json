@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "client-install": "cd front && npm install",
-    "start": "node app.js",
+    "start": "node ./bin/www",
     "server": "nodemon ./bin/www",
     "client": "cd front && npm start",
     "heroku-postbuild": "cd front && npm install && npm run build",
@@ -22,6 +22,7 @@
     "express-session": "^1.17.0",
     "mongodb": "^3.5.5",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },

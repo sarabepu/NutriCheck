@@ -43,6 +43,4 @@ app.use("/", passportRouter);
 app.use("/user", usersRouter);
 app.use("/ingredients", ingredientsRouter);
 
-app.listen(port, () =>
-  console.log(`Example app listening at http://localhost:${port}`)
-);
+module.exports = app;
