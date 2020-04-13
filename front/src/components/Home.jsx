@@ -1,5 +1,6 @@
 import React from 'react';
-import Registro from './Registro'
+import Registro from './Registro';
+import Medidas from "./Medidas";
 
 
 function Home(props) {
@@ -16,7 +17,7 @@ function Home(props) {
              : 
              <>
              <h1 className="white-text" >Perfil de  {props.user.username}</h1>
-             
+             <Medidas user={props.user}/>
              </>}
         </div>
     );
