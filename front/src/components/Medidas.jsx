@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Col, Form, Button,Card } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Col, Form, Button, Card, Container } from 'react-bootstrap';
 
 //Método para hacer post con fetch
 async function postData(url = '', data = {}) {
@@ -8,7 +8,7 @@ async function postData(url = '', data = {}) {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
+    credentials: 'include', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json'
       // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -37,12 +37,12 @@ function Medidas(props) {
   const handleSubmit = (e) => {
     e.preventDefault()
     let paciente = {
-      "filter":{
-        username:props.user.username,
+      "filter": {
+        username: props.user.username,
 
       },
       "query": {
-       
+
         estatura,
         peso,
         cintura,
@@ -59,12 +59,30 @@ function Medidas(props) {
   };
 
   return (
-    
+    <Container className="sub-card">
       <Card>
+        <Card.Header>
+          Editar mis medidas
+          </Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit}>
 
-            <Form.Label>Circunferencias</Form.Label>
+
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridPeso">
+                <Form.Label>Peso (kg)</Form.Label>
+                <Form.Control type="number" value={peso} onChange={e => setPeso(e.target.value)} />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridEstatura">
+                <Form.Label>Estatura (m)</Form.Label>
+                <Form.Control type="number" value={estatura} onChange={e => setEstatura(e.target.value)} />
+              </Form.Group>
+
+            </Form.Row>
+
+            <span className="subtitle">Circunferencias </span>
+            <br />
+            <br />
             <Form.Row>
               <Form.Group as={Col} controlId="formGridCintura">
                 <Form.Label>Cintura (cm)</Form.Label>
@@ -77,18 +95,6 @@ function Medidas(props) {
               <Form.Group as={Col} controlId="formGridBrazo">
                 <Form.Label> Brazo (cm)</Form.Label>
                 <Form.Control type="number" value={brazo} onChange={e => setBrazo(e.target.value)} />
-              </Form.Group>
-
-            </Form.Row>
-
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridPeso">
-                <Form.Label>Peso (kg)</Form.Label>
-                <Form.Control type="number" value={peso} onChange={e => setPeso(e.target.value)} />
-              </Form.Group>
-              <Form.Group as={Col} controlId="formGridEstatura">
-                <Form.Label>Estatura (m)</Form.Label>
-                <Form.Control type="number" value={estatura} onChange={e => setEstatura(e.target.value)} />
               </Form.Group>
 
             </Form.Row>
@@ -106,6 +112,7 @@ function Medidas(props) {
 
         </Card.Body>
       </Card>
+    </Container>
   );
 }
 export default Medidas;

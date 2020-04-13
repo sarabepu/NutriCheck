@@ -1,30 +1,54 @@
-#main-card{
+#main-card {
   width: 50%;
   padding-top: 5%;
 }
 
-#navbar-principal{
-  background-color: #114B5F !important;
- 
+#navbar-principal {
+  background-color: #114b5f !important;
 }
 
-.white-text{
+.white-text {
   color: white !important;
 }
-button{
-  background-color: #1A936F !important;
-  border-color:#1A936F !important; 
-  color:white !important;
+button {
+  background-color: #1a936f !important;
+  border-color: #1a936f !important;
+  color: white !important;
 }
 
-.button-outline{
-  margin: .5rem !important;
+.button-outline {
+  margin: 0.5rem !important;
   background-color: white !important;
-  border-color:#1A936F !important; 
-  color:#1A936F !important;
+  border-color: #1a936f !important;
+  color: #1a936f !important;
+}
+.card-content {
+  max-height: 65vh;
 }
 
-body{
-  background:linear-gradient(0deg, rgba(20, 20, 26, 0.7), rgba(19, 18, 18, 0.7)), url('/images/frutas.jpg');
-  background-size:cover;
+.subtitle {
+  font-size: 1.5rem;
+}
+.secondary-button {
+  height: 1.8rem;
+  margin: auto;
+}
+.sub-card {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.svg-inline--fa {
+  align-items: center;
+  display: flex;
+}
+
+body {
+  background: linear-gradient(
+      0deg,
+      rgba(20, 20, 26, 0.7),
+      rgba(19, 18, 18, 0.7)
+    ),
+    url("/images/frutas.jpg");
+  background-size: cover;
 }
