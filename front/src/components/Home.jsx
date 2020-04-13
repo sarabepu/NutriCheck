@@ -2,7 +2,6 @@ import React from "react";
 import Registro from "./Registro";
 import Datos from "./Datos";
 
-
 function Home(props) {
   console.log(props.user);
   return (
@@ -11,21 +10,13 @@ function Home(props) {
         <>
           <Registro {...props} />
         </>
-        )
-        :
-        (
-          <>
-            <h1 className="white-text user-title" align="center">
-              Perfil de {props.user.username}
-            </h1>
-            {props.user.nutri || (
-              
-              <Datos user={props.user} setUser={props.setUser}></Datos>
-             
-            
-            )}
-          </>
-        )}
+      ) : (
+        <>
+          {props.user.nutri || (
+            <Datos user={props.user} setUser={props.setUser}></Datos>
+          )}
+        </>
+      )}
     </div>
   );
 }

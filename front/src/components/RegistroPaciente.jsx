@@ -69,6 +69,16 @@ function RegistroPaciente(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const d = new Date();
+    let history =
+      peso == "0"
+        ? []
+        : [
+            {
+              fecha: new Date(),
+              peso: parseInt(peso),
+            },
+          ];
     let paciente = {
       user: {
         username,
@@ -89,6 +99,7 @@ function RegistroPaciente(props) {
         favoritos: [],
         desagradables: [],
         alergias: [],
+        historial: history,
       },
     };
     console.log(paciente);
