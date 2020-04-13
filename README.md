@@ -2,7 +2,8 @@
 
 ## Authors:
 
-Sara Bejarano, Mariana Rodriguez
+* [Sara Bejarano](https://sarabepu.github.io/website) 👩‍💻💃
+* [Mariana Rodriguez](https://mrodriguez21.github.io) 👩‍💻🤘
 
 ## Description:
 
@@ -10,35 +11,46 @@ Nutricheck is a Webapp designed to help nutritionists and patients track their p
 
 - Sign up for patients and nutritionists
 - BMI classification of the patients
-- Favorite, unpleseant and allergies lists for pacients.
+- Favorite, unpleasant and allergies lists for patients
 - Diet assignation by nutritionists
 - Progress graphics for patients
-- Personalized comments by nutricionists
+- Personalized comments by nutritionists
+
+You can check the deployed version [here](https://nutricheck.herokuapp.com/).
 
 ## Deployment
 
 You can check the deployed version [here](https://nutricheck.herokuapp.com/)
 - Clone this repo
-- Create enviromental variables named " "secretkey", "uriNutri" (mongo uri) and "PORT" (5000)
-- cd front
-- Run the command for isntalling the dependencies npm install
-- run npm start
-- cd .. 
-- run nodemon app.js
+
+- Create enviroment variables named `secretkey`, `uriNutri` (your mongo uri) and `PORT` (5000)
+
+- Run the following commands
+
+  ```bash
+  cd front
+  npm install # Installs dependencies
+  npm start # Starts the front end
+  cd ..
+  npm start # Runs `node bin/www` for starting the back end
+  ```
+
 - Go to localhost:5000 on your browser
 
 ## Color palette
-  ![Color palette](https://i.imgur.com/Ra6uGpf.png)
 
+![Color palette](https://i.imgur.com/Ra6uGpf.png)
 
 ## Screenshots
 
-- Home
-  ![Home](https://i.imgur.com/5L651lC.jpg)
-- Profile
-  ![Profile](https://i.imgur.com/HfJh7vm.png)
-  ![Profile](https://i.imgur.com/MONY2sx.png)
+### Home
+![Home](https://i.imgur.com/5L651lC.jpg)
 
-## License
+### Profile
+![Profile](https://i.imgur.com/HfJh7vm.png)
+![Profile](https://i.imgur.com/MONY2sx.png)
 
-MIT license
+## MIT License
+
+This project is licensed by the MIT [License](https://github.com/sarabepu/NutriCheck/blob/master/LICENSE).
+
