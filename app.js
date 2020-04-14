@@ -23,7 +23,7 @@ app.use(
 );
 
 // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, "front/build")));
+app.use(express.static(path.join(__dirname, "front/build")));
 
 const configPassport = require("./configurePassport.js");
 
@@ -42,14 +42,10 @@ const ingredientsRouter = require("./routes/ingredients");
 const passportRouter = require("./routes/passport");
 
 app.use("/", indexRouter);
-app.use("/pass", passportRouter);
+app.use("/", passportRouter);
 app.use("/user", usersRouter);
 app.use("/ingredients", ingredientsRouter);
 
-//module.exports = app;
+module.exports = app;
 // const port = 3000;
 // app.listen(port, () => console.log(`App listening on ${port}`));
-
-module.exports = app;
-
-
