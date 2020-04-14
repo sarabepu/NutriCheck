@@ -50,5 +50,6 @@ app.use("/ingredients", ingredientsRouter);
 // const port = 3000;
 // app.listen(port, () => console.log(`App listening on ${port}`));
 
-export default app;
+module.exports = app;
+
 
