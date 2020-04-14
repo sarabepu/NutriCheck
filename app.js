@@ -41,8 +41,8 @@ const ingredientsRouter = require("./routes/ingredients");
 
 const passportRouter = require("./routes/passport");
 
-// app.use("/", indexRouter);
-app.use("/", passportRouter);
+app.use("/", indexRouter);
+app.use("/pass", passportRouter);
 app.use("/user", usersRouter);
 app.use("/ingredients", ingredientsRouter);
 
