@@ -4,7 +4,7 @@
   "description": "New project for tracking nutritional health",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node bin/www",
     "heroku-postbuild": "cd front && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
