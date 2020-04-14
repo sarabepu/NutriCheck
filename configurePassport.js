@@ -2,6 +2,8 @@ const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
 const db = require("./db/MongoUtils");
 
+//Esta bien configurado el passport y utilizan bcrypt de una manera correcta.
+
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
