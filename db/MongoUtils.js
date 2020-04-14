@@ -1,4 +1,7 @@
+//  Esta muy bien estructurado el mongodb sin errorees de indentacion, lo unico recomendable es comentar el codigo para hacerlo mucho mas entendible
+
 const mongodb = require("mongodb");
+
 
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
