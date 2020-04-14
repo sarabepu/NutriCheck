@@ -23,7 +23,7 @@ app.use(
 );
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, "front/build")));
+// app.use(express.static(path.join(__dirname, "front/build")));
 
 const configPassport = require("./configurePassport.js");
 
