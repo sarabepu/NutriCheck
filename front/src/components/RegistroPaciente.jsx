@@ -102,7 +102,7 @@ function RegistroPaciente(props) {
           <Form.Control
             required
             type="email"
-            placeholder="Username"
+            placeholder="Email"
             onChange={(e) => setUserName(e.target.value)}
           />
         </Form.Group>

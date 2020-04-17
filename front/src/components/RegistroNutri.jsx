@@ -52,7 +52,7 @@ function RegistroNutri(props) {
           <Form.Control
             required
             type="email"
-            placeholder="Username"
+            placeholder="Email"
             onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>

@@ -11,18 +11,21 @@ function Login(props) {
   const handleSubmit = () => {
     let paciente = { username, password, nutri };
     console.log(paciente);
-    postData("/login", paciente)
-      .then((data) => {
-        if (data.error) {
-          //contraseña
-          setError(true);
-        } else {
-          props.setUser(data.user);
-        }
+    postData("/user/profile", { username, nutri })
+      .then(() => {
+        postData("/login", paciente)
+          .then((data) => {
+            if (data.error) {
+              //contraseña
+              setError(true);
+            } else {
+              setError(false);
+              props.setUser(data.user);
+            }
+          })
+          .catch(() => setError(true));
       })
-      .catch((err) => {
-        setError(true);
-      });
+      .catch(() => setError(true));
   };
 
   return (
@@ -40,7 +43,7 @@ function Login(props) {
       <Form inline>
         <Form.Control
           type="text"
-          placeholder="Username"
+          placeholder="Email"
           onChange={(e) => setUsername(e.target.value)}
         />
 
@@ -53,9 +56,9 @@ function Login(props) {
 
         <Form.Check
           type="checkbox"
-          label=" Soy Nutricionista"
+          label="Soy Nutricionista"
           className=" ml-sm-2 white-text"
-          onChange={(e) => setNutri(e.target.value)}
+          onChange={(e) => setNutri(e.target.value === "on")}
         />
         <Button variant="primary" className=" ml-sm-2" onClick={handleSubmit}>
           Login

@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db/MongoUtils");
-/* GET home page. */
-router.get("/", (req, res) => res.send("Hello World!"));
 
 // Register a new user
 router.post("/new", (req, res) => {
@@ -14,7 +12,7 @@ router.post("/new", (req, res) => {
 
 // Get user
 router.post("/profile", (req, res) => {
-  db.findOne(req.body.user, "users", (user) => res.send(user));
+  db.findOne(req.body, "users", (user) => res.send(user));
 });
 
 router.post("/update", (req, res) => {
