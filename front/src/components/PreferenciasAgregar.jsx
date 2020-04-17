@@ -9,7 +9,7 @@ function PreferenciasAgregar(props) {
     fetch("/ingredients")
       .then((res) => res.json())
       .then((res) => {
-        setIngredients(res.map((i) => i.nombre));
+        setIngredients(res.map((i) => i.nombre.toLowerCase()));
       });
   }, []);
 

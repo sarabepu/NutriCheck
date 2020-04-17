@@ -22,6 +22,7 @@ async function postData(url = "", data = {}) {
 
 function RegistroPaciente(props) {
   const [nutricionista, setNutricionista] = useState("");
+  const [nutricionistaId, setNutricionistaId] = useState("");
   const [nombre, setNombre] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -74,6 +75,7 @@ function RegistroPaciente(props) {
         pantorrilla,
         brazo,
         nutricionista,
+        nutricionistaId,
         nutri: false,
         favoritos: [],
         desagradables: [],
@@ -189,12 +191,18 @@ function RegistroPaciente(props) {
             </Form.Label>
             <Form.Control
               as="select"
-              onChange={(e) => setNutricionista(e.target.value)}
+              onChange={(e) => {
+                let index = e.target.selectedIndex;
+                let el = e.target.childNodes[index];
+                let id = el.getAttribute("id");
+                setNutricionista(e.target.value);
+                setNutricionistaId(id);
+              }}
               multiple
             >
               {nutris.map((value, index) => {
                 return (
-                  <option key={index}>
+                  <option key={index} id={value.username}>
                     {value.nombre} {value.apellido}
                   </option>
                 );

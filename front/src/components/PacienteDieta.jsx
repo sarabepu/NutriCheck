@@ -93,9 +93,10 @@ function PacienteDieta(props) {
               </>
             ) : (
               <div>
-                Su paciente aún no tiene una dieta asignada. A continuación,
-                seleccione la cantidad de calorías adecuada teniendo en cuenta
-                los parámetros de arriba.
+                Su paciente aún no tiene una dieta asignada.
+                <br /> A continuación, seleccione la cantidad de calorías
+                adecuada teniendo en cuenta los parámetros de arriba.
+                <br />
                 <br />
                 <Form>
                   <Form.Group controlId="calories">
