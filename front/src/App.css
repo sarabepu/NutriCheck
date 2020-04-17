@@ -10,15 +10,14 @@
 #navbar-principal {
   background-color: #114b5f !important;
 }
-.font-match
-{
-  font-family: 'Merriweather', serif !important;
+.font-match {
+  font-family: "Merriweather", serif !important;
 }
-.logo{
+.logo {
   font-size: 1.5rem;
 }
-body{
-  font-family: 'Montserrat', sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
 }
 .white-text {
   color: white !important;
@@ -55,9 +54,10 @@ button:not(.close) {
   margin-bottom: 1vh;
 }
 button:not(.close).secondary-button {
-  height: 1.8rem;
-  width: 1.8rem;
-  margin: auto;
+  height: auto;
+  width: auto;
+  margin: initial;
+  padding: 0px 0 2px 0;
   color: #f25c78 !important;
   border-color: white !important;
   background-color: white !important;
@@ -137,4 +137,12 @@ input[type="range"] {
     #f2bc1b 36%,
     #f20345 80%
   );
+}
+
+/*Checkbox styling*/
+.form-check [type="checkbox"] {
+  background: #333;
+
+  border-radius: 50px;
+  position: relative;
 }
