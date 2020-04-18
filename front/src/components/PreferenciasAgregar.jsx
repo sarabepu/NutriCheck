@@ -9,7 +9,7 @@ function PreferenciasAgregar(props) {
     fetch("/ingredients")
       .then((res) => res.json())
       .then((res) => {
-        setIngredients(res.map((i) => i.nombre.toLowerCase()));
+        setIngredients(res.map((i) => i.nombre.toLowerCase()).sort());
       });
   }, []);
 
@@ -70,7 +70,7 @@ function PreferenciasAgregar(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form>
+        <Form className="preferences-check">
           {ingredients.map((ing) => (
             <Form.Check
               inline

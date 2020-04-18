@@ -139,10 +139,13 @@ input[type="range"] {
   );
 }
 
-/*Checkbox styling*/
+/*Preferences styling*/
+.preferences-check {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
 .form-check [type="checkbox"] {
-  background: #333;
-
+  background: #f25c78;
   border-radius: 50px;
   position: relative;
 }
