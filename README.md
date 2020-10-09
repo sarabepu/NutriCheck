@@ -40,6 +40,7 @@ You can check the deployed version [here](https://nutricheck.herokuapp.com/)
 ## Color palette
 
 ![Color palette](https://i.imgur.com/Ra6uGpf.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsarabepu%2FNutriCheck.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsarabepu%2FNutriCheck?ref=badge_shield)
 
 ## Screenshots
 
@@ -54,3 +55,6 @@ You can check the deployed version [here](https://nutricheck.herokuapp.com/)
 
 This project is licensed by the MIT [License](https://github.com/sarabepu/NutriCheck/blob/master/LICENSE).
 
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsarabepu%2FNutriCheck.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsarabepu%2FNutriCheck?ref=badge_large)
